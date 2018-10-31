@@ -9,6 +9,8 @@ var Page = function(app) {
 Page.prototype.display = function() {
 		
 	$('#welcomeLabel').hide();
+	document.getElementById("lastname").style.display = 'none';
+	document.getElementById("firstname").style.display = 'none';
 	
 	if (this.url.search(/\?{1}.*error=/i) >= 0) {
 		// If the url has a URI fragment named error
@@ -43,6 +45,8 @@ Page.prototype.displayLoginUrl = function(app) {
 	$('#loginLink').attr('href', loginUrl);
 	
 	$('#loginLink').show();
+	document.getElementById("firstname").style.display = 'none';
+	document.getElementById("lastname").style.display = 'none';
 	$('#welcomeLabel').hide();
 	$('#errorLabel').hide();
 };
@@ -50,12 +54,15 @@ Page.prototype.displayLoginUrl = function(app) {
 Page.prototype.displayWelcomeMessage = function(user) {
 	
 	$('#welcomeLabel').attr('title', user.name);
-	$('#emailLink').text(user.first_name);
+	$('#firstname').text(user.first_name);
+	$('#lastname').text(user.last_name);
 	
 	if (user.email !== undefined) 
 		$('#emailLink').attr('href', 'mailto:' + user.email);
 	
 	$('#loginLink').hide();
+	document.getElementById("firstname").style.display = 'block';
+	document.getElementById("lastname").style.display = 'block';
 	$('#welcomeLabel').show();
 	$('#errorLabel').hide();
 };
@@ -73,6 +80,8 @@ Page.prototype.getLoginUrl = function(app) {
 Page.prototype.displayErrorMessage = function(errorMessage) {
 	$('#loginLink').hide();
 	$('#welcomeLabel').hide();
+	document.getElementById("lastname").style.display = 'none';
+	document.getElementById("firstname").style.display = 'none';
 	$('#errorLabel').text(errorMessage);
 	$('#errorLabel').show();
 };

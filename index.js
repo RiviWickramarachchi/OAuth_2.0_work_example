@@ -6,8 +6,9 @@ $(document).ready(function() {
 			client_id : '569780333452400', 
 			redirect_uri : 'http://localhost/test/index.html',
 			response_type : 'token',
-			scope : 'public_profile email',
+			scope : 'public_profile,email',
 			state : 'abcd'
+			
 		},
 		
 		provider : 

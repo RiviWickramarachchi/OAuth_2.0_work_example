@@ -5,7 +5,8 @@ var URL = function(url) {
 		
 		var p = { };
 		
-		if (this.indexOf('?') < 0 && this.indexOf('#') < 0) return p;
+		if (this.indexOf('?') < 0 && this.indexOf('#') < 0) 
+			return p;
 		
 		var query;
 		
